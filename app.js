@@ -2,8 +2,6 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client();
 
-const config = require('./config.json');
-
 let highlightsChannel;
 let lastHighlightedTime;
 let oldHighLights = [];
@@ -127,4 +125,4 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
   }
 });
 
-client.login(config.token);
+client.login(process.env.DISCORD_BOT_TOKEN || require('./bot-token'));
